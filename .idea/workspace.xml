@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/DeviceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/DeviceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/InventoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/InventoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/DeviceControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/InventoryControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/UserControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/DeviceServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/InventoryServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/UserServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/EmployeeDeviceTrackingSystemBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/EmployeeDeviceTrackingSystemBackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/config/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/config/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/DeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/DeviceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/UserReposetory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/UserReposetory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/util/NoSpecialCharsValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/util/NoSpecialCharsValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsp/util/NoSpecialCharsValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jsp/util/NoSpecialCharsValidatorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -240,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757523069518</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md">
+      <option name="closed" value="true" />
+      <created>1757529278075</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757529278075</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
