@@ -24,12 +24,12 @@ public class DeviceController {
 
     private final DeviceService deviceService;
 
-    @GetMapping
+    @GetMapping("/getAllDevice")
     public ResponseEntity<List<Device>> getAllDevices() {
         return ResponseEntity.ok(deviceService.getAllDevices());
     }
 
-    @PostMapping
+    @PostMapping("/saveDevice")
     public ResponseEntity<String> addNewDevice(@RequestBody @Valid Device device) {
         try {
             deviceService.saveDevice(device);

@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/saveUser")
+    @PostMapping("/SaveUser")
     public ResponseEntity<String> saveUser(@RequestBody @Valid User user) {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please insert the data");
