@@ -46,5 +46,16 @@ A Spring Boot backend application for managing employees, devices, and inventory
 ### Installation
 1. Clone the repository:
 ```bash
+
 git clone <repository-url>
 cd EmployeeDeviceTrackingSystemBackend
+
+Set environment variables for database credentials (Windows):
+set DB_USER=postgres
+set DB_PASS=yourpassword
+
+Build the project:
+mvn clean install
+
+Run the Spring Boot application:
+mvn spring-boot:run
