@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="adding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -50,25 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EmployeeDeviceTrackingSystemBackendApplication.executor": "Run",
-    "JUnit.NoEscapeCharsValidatorTest.executor": "Run",
-    "JUnit.NoSpecialCharsValidatorTest.executor": "Run",
-    "Maven.EmployeeDeviceTrackingSystemBackend [clean].executor": "Run",
-    "Maven.EmployeeDeviceTrackingSystemBackend [install].executor": "Run",
-    "Maven.EmployeeDeviceTrackingSystemBackend [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/POCs/EmployeeDeviceTrackingSystemBackend/src/test/java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EmployeeDeviceTrackingSystemBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NoEscapeCharsValidatorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NoSpecialCharsValidatorTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.EmployeeDeviceTrackingSystemBackend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.EmployeeDeviceTrackingSystemBackend [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.EmployeeDeviceTrackingSystemBackend [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;devlop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/POCs/EmployeeDeviceTrackingSystemBackend/src/test/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\POCs\EmployeeDeviceTrackingSystemBackend\src\test\java" />
@@ -127,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757511523322</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding">
+      <option name="closed" value="true" />
+      <created>1757515415980</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757515415980</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
