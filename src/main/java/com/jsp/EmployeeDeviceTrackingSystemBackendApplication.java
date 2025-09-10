@@ -11,5 +11,5 @@ import org.springframework.context.annotation.ComponentScan;
 public class EmployeeDeviceTrackingSystemBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeeDeviceTrackingSystemBackendApplication.class, args);
-    } 
+    }
 }

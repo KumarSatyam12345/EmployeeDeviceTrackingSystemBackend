@@ -1,10 +1,10 @@
 package com.jsp.util;
 
-import java.util.regex.Pattern;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.regex.Pattern;
 
 @Slf4j
 public class NoSpecialCharsValidator implements ConstraintValidator<NoSpecialChars, String> {

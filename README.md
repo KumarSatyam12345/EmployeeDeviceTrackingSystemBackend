@@ -21,7 +21,7 @@ A Spring Boot backend application for managing employees, devices, and inventory
 - Manage **Inventory**: track device issuance and return.
 - Input validation with **custom annotations**.
 - Logging with **Lombok @Slf4j**.
-- Fully tested with **JUnit 5 and Mockito** for 100% coverage.
+- Fully tested with **JUnit 5 and Mockito** for 90% coverage.
 
 ---
 
@@ -47,15 +47,24 @@ A Spring Boot backend application for managing employees, devices, and inventory
 1. Clone the repository:
 ```bash
 
-git clone <repository-url>
+## Getting Started
+Follow these steps to set up and run the **Employee Device Tracking System Backend** locally.
+
+### 1. Clone the repository
+```bash
+git clone <https://github.com/KumarSatyam12345/EmployeeDeviceTrackingSystemBackend.git>
 cd EmployeeDeviceTrackingSystemBackend
 
-Set environment variables for database credentials (Windows):
+### Set environment variables for database credentials (Windows):
 set DB_USER=postgres
 set DB_PASS=yourpassword
 
-Build the project:
+### Build the project:
 mvn clean install
 
-Run the Spring Boot application:
+### Run the Spring Boot application:
 mvn spring-boot:run
+
+### Access the API
+### 1.By default, the application runs on: http://localhost:8080
+### 2. Use tools like Postman or curl to test the API endpoints.
