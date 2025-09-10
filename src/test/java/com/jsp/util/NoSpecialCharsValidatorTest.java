@@ -1,16 +1,15 @@
 package com.jsp.util;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NoSpecialCharsValidatorTest {
 
     private NoSpecialCharsValidator validator;
-    //http://localhost:8080/device-api/v1//facilities/bb5a7e7c-86bb-4a27-89bb-fe16df44734c/devices
-//http://localhost:8080/device-api/v1//facilities/bb5a7e7c-86bb-4a27-89bb-fe16df44734c/devices
+
     @BeforeEach
     void setUp() {
         validator = new NoSpecialCharsValidator();

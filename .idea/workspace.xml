@@ -4,19 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="adding">
+    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/DeviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/DeviceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/InventoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/InventoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/DeviceControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/InventoryControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/DeviceServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/InventoryServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/EmployeeDeviceTrackingSystemBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/EmployeeDeviceTrackingSystemBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/config/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/config/JpaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/DeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/UserReposetory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/UserReposetory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/util/NoSpecialCharsValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/util/NoSpecialCharsValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsp/util/NoSpecialCharsValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jsp/util/NoSpecialCharsValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -35,12 +66,12 @@
     &quot;assignee&quot;: &quot;KumarSatyam12345&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KumarSatyam12345/EmployeeDeviceTrackingSystemBackend.git&quot;,
-    &quot;accountId&quot;: &quot;fefac904-cc4e-4164-9134-3e8e81d7a223&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/KumarSatyam12345/EmployeeDeviceTrackingSystemBackend.git",
+    "accountId": "33115f89-7e37-42b9-a162-f74108362bd6"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -52,30 +83,43 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2v8Nq1KgATigLmRuKV4NfLAbo85" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.EmployeeDeviceTrackingSystemBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NoEscapeCharsValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NoSpecialCharsValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EmployeeDeviceTrackingSystemBackend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EmployeeDeviceTrackingSystemBackend [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.EmployeeDeviceTrackingSystemBackend [package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;devlop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/POCs/EmployeeDeviceTrackingSystemBackend/src/test/java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EmployeeDeviceTrackingSystemBackendApplication.executor": "Run",
+    "JUnit.DeviceControllerTest.executor": "Run",
+    "JUnit.DeviceControllerTest.testGetDeviceByIdNotFound.executor": "Run",
+    "JUnit.DeviceServiceImplTest.executor": "Run",
+    "JUnit.InventoryControllerTest.executor": "Run",
+    "JUnit.InventoryServiceImplTest.executor": "Run",
+    "JUnit.NoEscapeCharsValidatorTest.executor": "Run",
+    "JUnit.NoSpecialCharsValidatorTest.executor": "Run",
+    "JUnit.UserControllerTest.executor": "Run",
+    "JUnit.UserServiceImplTest.executor": "Run",
+    "JUnit.com.jsp in EmployeeDeviceTrackingSystemBackend.executor": "Run",
+    "JUnit.com.jsp.util in EmployeeDeviceTrackingSystemBackend.executor": "Coverage",
+    "Maven.EmployeeDeviceTrackingSystemBackend [clean].executor": "Run",
+    "Maven.EmployeeDeviceTrackingSystemBackend [install].executor": "Run",
+    "Maven.EmployeeDeviceTrackingSystemBackend [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "devlop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/POCs/EmployeeDeviceTrackingSystemBackend/src/test/java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\POCs\EmployeeDeviceTrackingSystemBackend\src\test\java" />
@@ -95,7 +139,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoSpecialCharsValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EmployeeDeviceTrackingSystemBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jsp.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jsp.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.jsp.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EmployeeDeviceTrackingSystemBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jsp.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jsp.service" />
+      <option name="MAIN_CLASS_NAME" value="com.jsp.service.UserServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.jsp in EmployeeDeviceTrackingSystemBackend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EmployeeDeviceTrackingSystemBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jsp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jsp" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.jsp.util in EmployeeDeviceTrackingSystemBackend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EmployeeDeviceTrackingSystemBackend" />
       <extension name="coverage">
         <pattern>
@@ -104,8 +192,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.jsp.util" />
-      <option name="MAIN_CLASS_NAME" value="com.jsp.util.NoSpecialCharsValidatorTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,7 +200,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EmployeeDeviceTrackingSystemBackendApplication" />
-        <item itemvalue="JUnit.NoSpecialCharsValidatorTest" />
+        <item itemvalue="JUnit.com.jsp in EmployeeDeviceTrackingSystemBackend" />
+        <item itemvalue="JUnit.com.jsp.util in EmployeeDeviceTrackingSystemBackend" />
+        <item itemvalue="JUnit.UserServiceImplTest" />
+        <item itemvalue="JUnit.UserControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -142,11 +232,29 @@
       <option name="project" value="LOCAL" />
       <updated>1757515415980</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Removed hardcoded spring.datasource.username and spring.datasource.password &#10;  from application.properties">
+      <option name="closed" value="true" />
+      <created>1757523069518</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757523069518</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding" />
+    <MESSAGE value="Removed hardcoded spring.datasource.username and spring.datasource.password &#10;  from application.properties" />
+    <MESSAGE value="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(service): implement Service with constructor injection and add unit tests&#10;-And also update README.md" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EmployeeDeviceTrackingSystemBackend$com_jsp_util_in_EmployeeDeviceTrackingSystemBackend.ic" NAME="com.jsp.util in EmployeeDeviceTrackingSystemBackend Coverage Results" MODIFIED="1757525906749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.jsp.util.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/EmployeeDeviceTrackingSystemBackend$com_jsp_in_EmployeeDeviceTrackingSystemBackend.ic" NAME="com.jsp in EmployeeDeviceTrackingSystemBackend Coverage Results" MODIFIED="1757525843005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.jsp.*</FILTER>
+    </SUITE>
   </component>
 </project>

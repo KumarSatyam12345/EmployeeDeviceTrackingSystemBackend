@@ -1,2 +1,61 @@
-# Project exclude paths
+# =================================
+# Java / Maven
+# =================================
 /target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.iml
+
+# =================================
+# IDE / Editor
+# =================================
+# IntelliJ IDEA
+/.idea/
+/*.iws
+/*.iml
+/*.ipr
+
+# VS Code
+.vscode/
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# =================================
+# Operating System
+# =================================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# =================================
+# Spring Boot / Application
+# =================================
+/logs/
+/*.log
+*.tmp
+*.bak
+*.swp
+
+# Environment / secrets
+.env
+application.properties
+
+# =================================
+# Lombok / Annotation Processing
+# =================================
+/*.h2.db

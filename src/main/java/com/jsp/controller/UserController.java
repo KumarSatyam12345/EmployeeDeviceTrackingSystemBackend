@@ -1,69 +1,62 @@
 package com.jsp.controller;
+
+import com.jsp.entity.User;
+import com.jsp.service.UserService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import com.jsp.entity.User;
-import com.jsp.reposetory.UserReposetory;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin("*")
 public class UserController {
-	
-	@Autowired
-	private UserReposetory userRepository;
-	@PostMapping("/SaveUser")
-	public String saveUser(@RequestBody @Valid User user) {
-		if(user!=null) {
-			userRepository.save(user);
-			return "User record saved successfully!";
-		}
-		else {
-			return "Please insert the data";
-		}
-	}
-	@GetMapping("/getAllUser")
-	public List<User> getAllUser(){
-		List<User> s = userRepository.findAll();
-		System.out.println(s);
-		return s;
-	}
-	@GetMapping("/{id}")
-	public User getUserById(@PathVariable int id) {
-		Optional<User> opt = userRepository.findById(id);
-		if(opt.isPresent()) {
-			return opt.get();
-		}
-		else {
-			System.out.println("Data not found");
-			return null;
-		}
-	}
-	@DeleteMapping("/{id}")
-	public String deleteUser(@PathVariable int id) {
-		Optional<User> opt = userRepository.findById(id);
-		if(opt.isPresent()) {
-			userRepository.delete(opt.get());
-			return "Data is deleted";
-		}
-		else {
-			return "Not deleted";
-		}
-	}
-	@PutMapping("/{id}")
-	public String updateUser(@PathVariable int id, @RequestBody @Valid User updatedUser) {
-	    Optional<User> optionalUser = userRepository.findById(id);
-	    if (optionalUser.isPresent()) {
-	        User existingUser = optionalUser.get();
-	        existingUser.setName(updatedUser.getName());
-	        existingUser.setGmail(updatedUser.getGmail());
-	        existingUser.setPassword(updatedUser.getPassword());
-	        userRepository.save(existingUser);
-	        return "User record updated";
-	    } else {
-	        return "User not found";
-	    }
-	}
+
+    private final UserService userService;
+
+    // Constructor injection
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping("/saveUser")
+    public ResponseEntity<String> saveUser(@RequestBody @Valid User user) {
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please insert the data");
+        }
+        userService.saveUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("User record saved successfully!");
+    }
+
+    @GetMapping("/getAllUser")
+    public List<User> getAllUser() {
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        Optional<User> user = userService.getUserById(id);
+        return user.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+        boolean deleted = userService.deleteUserById(id);
+        if (deleted) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Data is deleted");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody @Valid User updatedUser) {
+        Optional<User> updated = userService.updateUserById(id, updatedUser);
+        return updated.map(user -> ResponseEntity.ok("User record updated"))
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found"));
+    }
 }

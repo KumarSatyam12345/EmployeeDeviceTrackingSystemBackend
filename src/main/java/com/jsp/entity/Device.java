@@ -6,18 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@Setter
-@Getter
 @Entity
-@ToString
 @Data
 @Builder
 @AllArgsConstructor
@@ -26,10 +17,12 @@ public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int dId;
-    //    @NoSpecialChars(message = "The string must not contain escape characters!")
+
+    @NoSpecialChars(message = "The string must not contain escape characters!")
     @JsonProperty("dName")
     private String dName;
-    //    @NoSpecialChars(message = "The string must not contain escape characters!")
+
+    @NoSpecialChars(message = "The string must not contain escape characters!")
     @JsonProperty("dModel")
     private String dModel;
 }
