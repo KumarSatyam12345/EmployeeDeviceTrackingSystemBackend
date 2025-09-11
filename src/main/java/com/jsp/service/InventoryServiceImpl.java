@@ -2,6 +2,7 @@ package com.jsp.service;
 
 import com.jsp.entity.Inventory;
 import com.jsp.reposetory.InventoryReposetory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class InventoryServiceImpl implements InventoryService {
 
     private final InventoryReposetory inventoryReposetory;
@@ -20,6 +22,7 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<Inventory> getAllInventory() {
+        log.info("Fetching all Inventory");
         return inventoryReposetory.findAll();
     }
 
