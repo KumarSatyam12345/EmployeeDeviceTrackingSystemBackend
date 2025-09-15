@@ -2,6 +2,7 @@ package com.jsp.entity;
 
 import com.jsp.util.NoSpecialChars;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Entity
@@ -19,6 +20,7 @@ public class User {
     private int uid;
     @NoSpecialChars(message = "The string must not contain escape characters!")
     private String name;
+    @Email
     private String gmail;
     private String password;
 }

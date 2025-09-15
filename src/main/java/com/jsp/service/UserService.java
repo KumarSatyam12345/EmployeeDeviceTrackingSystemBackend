@@ -13,7 +13,7 @@ public interface UserService {
 
     Optional<User> getUserById(int id);
 
-    boolean deleteUserById(int id);
+    String deleteUserById(int id);
 
     Optional<User> updateUserById(int id, User updatedUser);
 }
