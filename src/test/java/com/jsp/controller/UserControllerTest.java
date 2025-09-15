@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class UserControllerTest {
@@ -71,23 +71,37 @@ class UserControllerTest {
 
     @Test
     void testDeleteUserFound() {
-        when(userService.deleteUserById(1)).thenReturn(true);
+        when(userService.deleteUserById(1)).thenReturn("User deleted successfully");
 
         var response = userController.deleteUser(1);
 
-        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
-        assertEquals("Data is deleted", response.getBody());
+        assertEquals(HttpStatus.OK, response.getStatusCode()); // ✅ now returns 200 OK
+        assertNotNull(response.getBody());
+        assertEquals("User deleted successfully", response.getBody().get("message"));
     }
 
     @Test
     void testDeleteUserNotFound() {
-        when(userService.deleteUserById(1)).thenReturn(false);
+        when(userService.deleteUserById(1)).thenThrow(new NoSuchElementException("User not found"));
 
         var response = userController.deleteUser(1);
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals("User not found", response.getBody());
+        assertNotNull(response.getBody());
+        assertEquals("User not found", response.getBody().get("message"));
     }
+
+    @Test
+    void testDeleteUserWithInventory() {
+        when(userService.deleteUserById(1)).thenThrow(new IllegalStateException("Cannot delete user with assigned inventory"));
+
+        var response = userController.deleteUser(1);
+
+        assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals("Cannot delete user with assigned inventory", response.getBody().get("message"));
+    }
+
 
     @Test
     void testUpdateUserFound() {

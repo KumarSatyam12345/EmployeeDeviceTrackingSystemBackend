@@ -1,33 +1,43 @@
 package com.jsp.service;
 
 import com.jsp.entity.User;
+import com.jsp.reposetory.InventoryReposetory;
 import com.jsp.reposetory.UserReposetory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
 
+    @Mock
     private UserReposetory userRepository;
+    @InjectMocks
     private UserServiceImpl userService;
+    @Mock
+    private InventoryReposetory inventoryRepository;
 
     @BeforeEach
     void setUp() {
         userRepository = mock(UserReposetory.class);
-        userService = new UserServiceImpl(userRepository);
+        userService = new UserServiceImpl(userRepository, inventoryRepository);
     }
 
     private User sampleUser() {
         User user = new User();
-        user.setName("Satyam");
-        user.setGmail("satyam@example.com");
-        user.setPassword("pass123");
+        user.setUid(1);
+        user.setName("John Doe");
         return user;
     }
 
@@ -77,10 +87,11 @@ class UserServiceImplTest {
     void testDeleteUserByIdFound() {
         User user = sampleUser();
         when(userRepository.findById(1)).thenReturn(Optional.of(user));
+        when(inventoryRepository.existsByUser(user)).thenReturn(false);
 
-        boolean deleted = userService.deleteUserById(1);
+        String result = userService.deleteUserById(1);
 
-        assertTrue(deleted);
+        assertEquals("User deleted successfully", result);
         verify(userRepository).delete(user);
     }
 
@@ -88,11 +99,26 @@ class UserServiceImplTest {
     void testDeleteUserByIdNotFound() {
         when(userRepository.findById(1)).thenReturn(Optional.empty());
 
-        boolean deleted = userService.deleteUserById(1);
+        NoSuchElementException exception =
+                assertThrows(NoSuchElementException.class, () -> userService.deleteUserById(1));
 
-        assertFalse(deleted);
+        assertEquals("User not found", exception.getMessage());
         verify(userRepository, never()).delete(any());
     }
+
+    @Test
+    void testDeleteUserWithInventory() {
+        User user = sampleUser();
+        when(userRepository.findById(1)).thenReturn(Optional.of(user));
+        when(inventoryRepository.existsByUser(user)).thenReturn(true);
+
+        IllegalStateException exception =
+                assertThrows(IllegalStateException.class, () -> userService.deleteUserById(1));
+
+        assertEquals("Cannot delete user with assigned inventory", exception.getMessage());
+        verify(userRepository, never()).delete(any());
+    }
+
 
     @Test
     void testUpdateUserByIdFound() {
