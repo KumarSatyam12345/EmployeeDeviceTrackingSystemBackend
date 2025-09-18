@@ -33,6 +33,7 @@ public class DeviceController {
     public ResponseEntity<String> addNewDevice(@RequestBody @Valid Device device) {
         try {
             deviceService.saveDevice(device);
+            log.info("Device saved successfully: {}", device);
             return ResponseEntity.status(HttpStatus.CREATED).body("Device record saved successfully");
         } catch (Exception e) {
             log.error("Error saving device", e);

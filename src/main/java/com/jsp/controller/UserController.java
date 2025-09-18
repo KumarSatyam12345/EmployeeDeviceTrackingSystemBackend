@@ -26,20 +26,24 @@ public class UserController {
     @PostMapping("/SaveUser")
     public ResponseEntity<String> saveUser(@RequestBody @Valid User user) {
         if (user == null) {
+            log.info("Received null user data");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please insert the data");
         }
         userService.saveUser(user);
+        log.info("User saved successfully: {}", user);
         return ResponseEntity.status(HttpStatus.CREATED).body("User record saved successfully!");
     }
 
     @GetMapping("/getAllUser")
     public List<User> getAllUser() {
+        log.info("Fetching all users");
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable int id) {
         Optional<User> user = userService.getUserById(id);
+        log.info("Fetching user with ID: {}", id);
         return user.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
