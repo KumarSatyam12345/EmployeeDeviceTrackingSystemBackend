@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="Removed unnecessary Hibernate">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/reposetory/InventoryReposetory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jsp/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsp/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jsp/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsp/service/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jsp/service/UserServiceImplTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="da37d280-0fb3-4c89-9319-2a28ea81973f" name="Changes" comment="Removed unnecessary Hibernate" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +36,17 @@
     &quot;assignee&quot;: &quot;KumarSatyam12345&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOPtWWL86ouR_r",
+        "number": 8
+      },
+      "lastSeen": 1757971739424
+    }
+  ]
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/KumarSatyam12345/EmployeeDeviceTrackingSystemBackend.git&quot;,
@@ -102,7 +104,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "devlop",
+    "git-widget-placeholder": "#8 on devlop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/POCs/EmployeeDeviceTrackingSystemBackend/src/test/java",
     "project.structure.last.edited": "Modules",
@@ -295,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757962306099</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Removed unnecessary Hibernate">
+      <option name="closed" value="true" />
+      <created>1757971699271</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1757971699271</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
