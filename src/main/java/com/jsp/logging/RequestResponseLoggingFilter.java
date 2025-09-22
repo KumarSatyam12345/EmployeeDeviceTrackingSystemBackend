@@ -58,17 +58,17 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                 log.info("""
                         API Log:
                         Method   : {}
+                        Status   : {}
                         URI      : {}
                         Request  : {}
                         Response : {}
-                        Status   : {}
                         Time(ms) : {}
                         """,
                         request.getMethod(),
+                        response.getStatus(),
                         request.getRequestURI(),
                         requestBody,
                         responseBody,
-                        response.getStatus(),
                         duration
                 );
             } else {
