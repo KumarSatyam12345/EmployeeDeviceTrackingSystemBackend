@@ -1,5 +1,6 @@
 package com.jsp.service;
 
+import com.jsp.dto.UserRequestDto;
 import com.jsp.entity.User;
 
 import java.util.List;
@@ -16,4 +17,8 @@ public interface UserService {
     String deleteUserById(int id);
 
     Optional<User> updateUserById(int id, User updatedUser);
+
+    Optional<User> getUserByEmail(String gmail);
+
+    User createUser(UserRequestDto request);
 }

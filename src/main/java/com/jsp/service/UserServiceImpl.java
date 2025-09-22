@@ -1,9 +1,9 @@
 package com.jsp.service;
 
+import com.jsp.dto.UserRequestDto;
 import com.jsp.entity.User;
 import com.jsp.reposetory.InventoryReposetory;
 import com.jsp.reposetory.UserReposetory;
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserReposetory userRepository;
     private final InventoryReposetory inventoryRepository;
+
 
     // Constructor injection
     public UserServiceImpl(UserReposetory userRepository, InventoryReposetory inventoryRepository) {
@@ -70,5 +71,20 @@ public class UserServiceImpl implements UserService {
             return Optional.of(existingUser);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<User> getUserByEmail(String gmail) {
+        return userRepository.findByGmail(gmail);
+    }
+
+    // Create user with hashed password
+    @Override
+    public User createUser(UserRequestDto request) {
+        User user = new User();
+        user.setName(request.getName());
+        user.setGmail(request.getGmail());
+        user.setPassword((request.getPassword()));
+        return userRepository.save(user);
     }
 }
