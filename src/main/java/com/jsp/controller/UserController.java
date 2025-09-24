@@ -75,38 +75,4 @@ public class UserController {
         return updated.map(user -> ResponseEntity.ok("User record updated"))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found"));
     }
-
-    // ✅ Login endpoint
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequest) {
-        String gmail = loginRequest.getGmail();
-        String password = loginRequest.getPassword();
-
-        Optional<User> user = userService.getUserByEmail(gmail);
-        if (user.isPresent() && user.get().getPassword().equals(password)) {
-            log.info("Login successful for {}", gmail);
-            Map<String, Object> response = new HashMap<>();
-            response.put("message", "Login successful");
-            response.put("user", user.get());
-            return ResponseEntity.ok(response);
-        } else {
-            log.warn("Invalid login attempt for {}", gmail);
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
-        }
-    }
-
-    // ✅ Create new user
-    @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody UserRequestDto request) {
-        if (userService.getUserByEmail(request.getGmail()).isPresent()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body("User with this email already exists");
-        }
-
-        User user = userService.createUser(request);
-        log.info("New user created: {}", user.getGmail());
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
-    }
-
-
 }
