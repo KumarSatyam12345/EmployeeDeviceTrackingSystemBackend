@@ -45,6 +45,10 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             String requestBody = new String(requestWrapper.getContentAsByteArray(), StandardCharsets.UTF_8);
             String responseBody = new String(responseWrapper.getContentAsByteArray(), StandardCharsets.UTF_8);
 
+            // Mask sensitive fields
+            requestBody = maskSensitiveData(requestBody);
+            responseBody = maskSensitiveData(responseBody);
+
             // Truncate if too long
             if (requestBody.length() > MAX_BODY_LENGTH) {
                 requestBody = requestBody.substring(0, MAX_BODY_LENGTH) + "...[truncated]";
@@ -53,7 +57,7 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                 responseBody = responseBody.substring(0, MAX_BODY_LENGTH) + "...[truncated]";
             }
 
-            // Log only if request/response is not empty, otherwise log metadata
+            // Log request and response
             if (!requestBody.isBlank() || !responseBody.isBlank()) {
                 log.info("""
                         API Log:
@@ -82,6 +86,16 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             // Copy body back to client
             responseWrapper.copyBodyToResponse();
         }
+    }
+
+    /**
+     * Masks sensitive fields like "password" in JSON bodies.
+     */
+    private String maskSensitiveData(String body) {
+        if (body == null || body.isBlank()) return body;
+
+        // Mask password field (case-insensitive)
+        return body.replaceAll("(?i)\"password\"\\s*:\\s*\"[^\"]*\"", "\"password\":\"****\"");
     }
 
     @Override
