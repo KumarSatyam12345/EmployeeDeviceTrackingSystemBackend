@@ -8,12 +8,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+/**
+ * Entity representing a device.
+ * Contains device ID, name, and model.
+ */
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Device {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int dId;

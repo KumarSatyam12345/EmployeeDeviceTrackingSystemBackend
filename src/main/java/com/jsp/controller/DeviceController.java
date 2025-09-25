@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * REST controller for managing devices.
- * Provides endpoints for CRUD operations.
+ * Controller for managing devices.
  */
 @RestController
 @RequestMapping("/device")
@@ -24,11 +23,22 @@ public class DeviceController {
 
     private final DeviceService deviceService;
 
+    /**
+     * Fetches all devices.
+     *
+     * @return list of devices
+     */
     @GetMapping("/getAllDevice")
     public ResponseEntity<List<Device>> getAllDevices() {
         return ResponseEntity.ok(deviceService.getAllDevices());
     }
 
+    /**
+     * Saves a new device.
+     *
+     * @param device device details
+     * @return success or error response
+     */
     @PostMapping("/saveDevice")
     public ResponseEntity<String> addNewDevice(@RequestBody @Valid Device device) {
         try {
@@ -41,6 +51,12 @@ public class DeviceController {
         }
     }
 
+    /**
+     * Fetches a device by ID.
+     *
+     * @param id device ID
+     * @return device record or 404 if not found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Device> getDeviceById(@PathVariable int id) {
         return deviceService.getDeviceById(id)
@@ -48,6 +64,12 @@ public class DeviceController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
+    /**
+     * Deletes a device by ID.
+     *
+     * @param id device ID
+     * @return success or not found response
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDeviceById(@PathVariable int id) {
         return deviceService.deleteDeviceById(id)
@@ -55,6 +77,13 @@ public class DeviceController {
                 : ResponseEntity.status(HttpStatus.NOT_FOUND).body("Device not found");
     }
 
+    /**
+     * Updates a device by ID.
+     *
+     * @param id           device ID
+     * @param updateDevice updated device details
+     * @return success or not found response
+     */
     @PutMapping("/{id}")
     public ResponseEntity<String> updateDeviceById(@PathVariable int id, @RequestBody @Valid Device updateDevice) {
         return deviceService.updateDeviceById(id, updateDevice)
