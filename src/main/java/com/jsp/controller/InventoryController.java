@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Controller for managing inventory records.
+ */
 @Slf4j
 @RestController
 @RequestMapping("/inventory")
@@ -25,12 +28,23 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
+    /**
+     * Fetches all inventory records.
+     *
+     * @return list of inventory items
+     */
     @GetMapping("/getAllRepo")
     public List<Inventory> getAllData() {
         log.info("Fetching all inventory data");
         return inventoryService.getAllInventory();
     }
 
+    /**
+     * Saves a new inventory record.
+     *
+     * @param inventory inventory details
+     * @return success or error response
+     */
     @PostMapping("/saveRepo")
     public ResponseEntity<String> addInventory(@RequestBody @Valid Inventory inventory) {
         try {
@@ -46,6 +60,12 @@ public class InventoryController {
         }
     }
 
+    /**
+     * Fetches inventory by ID.
+     *
+     * @param id inventory ID
+     * @return inventory record or 404 if not found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Inventory> getInventoryDataById(@PathVariable int id) {
         Optional<Inventory> optional = inventoryService.getInventoryById(id);
@@ -54,6 +74,12 @@ public class InventoryController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
+    /**
+     * Deletes inventory by ID.
+     *
+     * @param id inventory ID
+     * @return success or not found response
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDataById(@PathVariable int id) {
         boolean deleted = inventoryService.deleteInventoryById(id);
@@ -64,6 +90,13 @@ public class InventoryController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Data not found");
     }
 
+    /**
+     * Updates inventory by ID.
+     *
+     * @param id inventory ID
+     * @param inventory updated inventory data
+     * @return success message or not found response
+     */
     @PutMapping("/{id}")
     public ResponseEntity<String> updateRecordById(@PathVariable int id, @RequestBody @Valid Inventory inventory) {
         Optional<Inventory> updated = inventoryService.updateInventoryById(id, inventory);

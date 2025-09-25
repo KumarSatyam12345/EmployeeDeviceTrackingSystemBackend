@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Controller for handling user login and account creation.
+ */
 @RestController
 @RequestMapping("/user")
 @CrossOrigin("*")
@@ -25,8 +28,12 @@ public class LocalAuthController {
         this.userService = userService;
     }
 
-
-    // Login endpoint
+    /**
+     * Authenticates a user with email and password.
+     *
+     * @param loginRequest login credentials
+     * @return success response with user or error status
+     */
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequest) {
         try {
@@ -36,6 +43,7 @@ public class LocalAuthController {
             Optional<User> user = userService.getUserByEmail(gmail);
             if (user.isPresent() && user.get().getPassword().equals(password)) {
                 log.info("Login successful for {}", gmail);
+
                 Map<String, Object> response = new HashMap<>();
                 response.put("message", "Login successful");
                 response.put("user", user.get());
@@ -44,14 +52,18 @@ public class LocalAuthController {
                 log.warn("Invalid login attempt for {}", gmail);
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
             }
-
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             log.error("Login failed due to null input", e);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email and password must be provided");
         }
     }
 
-    // Create new user
+    /**
+     * Registers a new user.
+     *
+     * @param request user details
+     * @return created user or conflict error
+     */
     @PostMapping("/create")
     public ResponseEntity<?> createUser(@RequestBody UserRequestDto request) {
         if (userService.getUserByEmail(request.getGmail()).isPresent()) {
@@ -63,5 +75,4 @@ public class LocalAuthController {
         log.info("New user created: {}", user.getGmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
-
 }
