@@ -7,7 +7,7 @@ import lombok.Data;
  * Contains name, email, and password.
  */
 @Data
-public class UserRequestDto {
+public class  UserRequestDto {
     private String name;
     private String gmail;
     private String password;

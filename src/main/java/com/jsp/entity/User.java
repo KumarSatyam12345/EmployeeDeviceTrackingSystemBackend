@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 
+/**
+ * Entity representing a user.
+ * Contains user ID, name, email, and password.
+ */
 @Entity
 @Table(name = "users")
 @ToString
@@ -15,12 +19,16 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uid;
+
     @NoSpecialChars(message = "The string must not contain escape characters!")
     private String name;
+
     @Email
     private String gmail;
+
     private String password;
 }

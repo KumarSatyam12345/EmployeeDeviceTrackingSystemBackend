@@ -8,9 +8,7 @@ import java.util.regex.Pattern;
 
 @Slf4j
 public class NoSpecialCharsValidator implements ConstraintValidator<NoSpecialChars, String> {
-    // Pattern is compiled only one time and reused for all validationsNewline:
-    //Alert (Bell): \a
-    //Vertical Tab: \v
+
     private static final Pattern SPECIAL_CHAR_PATTERN = Pattern.compile("[\r\f\b\t\"\n!'@#$%^&*\\\\]");
 
     /**

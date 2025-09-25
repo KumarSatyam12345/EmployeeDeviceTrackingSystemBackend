@@ -15,6 +15,13 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Filter for logging HTTP requests and responses.
+ * <p>
+ * Logs request/response bodies, HTTP method, URI, status, and processing time.
+ * Sensitive fields like passwords are masked, and long bodies are truncated.
+ * </p>
+ */
 @Component
 public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
@@ -41,15 +48,12 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
         } finally {
             long duration = System.currentTimeMillis() - startTime;
 
-            // Read request and response bodies
             String requestBody = new String(requestWrapper.getContentAsByteArray(), StandardCharsets.UTF_8);
             String responseBody = new String(responseWrapper.getContentAsByteArray(), StandardCharsets.UTF_8);
 
-            // Mask sensitive fields
             requestBody = maskSensitiveData(requestBody);
             responseBody = maskSensitiveData(responseBody);
 
-            // Truncate if too long
             if (requestBody.length() > MAX_BODY_LENGTH) {
                 requestBody = requestBody.substring(0, MAX_BODY_LENGTH) + "...[truncated]";
             }
@@ -57,7 +61,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                 responseBody = responseBody.substring(0, MAX_BODY_LENGTH) + "...[truncated]";
             }
 
-            // Log request and response
             if (!requestBody.isBlank() || !responseBody.isBlank()) {
                 log.info("""
                         API Log:
@@ -83,18 +86,18 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                         duration);
             }
 
-            // Copy body back to client
             responseWrapper.copyBodyToResponse();
         }
     }
 
     /**
-     * Masks sensitive fields like "password" in JSON bodies.
+     * Masks sensitive fields like passwords in JSON bodies.
+     *
+     * @param body the original request or response body
+     * @return body with sensitive fields masked
      */
     private String maskSensitiveData(String body) {
         if (body == null || body.isBlank()) return body;
-
-        // Mask password field (case-insensitive)
         return body.replaceAll("(?i)\"password\"\\s*:\\s*\"[^\"]*\"", "\"password\":\"****\"");
     }
 
