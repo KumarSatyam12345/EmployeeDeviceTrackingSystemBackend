@@ -35,7 +35,7 @@ public class LocalAuthController {
      * @return success response with user or error status
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequest) {
+    public ResponseEntity<Object> login(@RequestBody LoginRequestDto loginRequest) {
         try {
             String gmail = loginRequest.getGmail();
             String password = loginRequest.getPassword();
@@ -65,7 +65,7 @@ public class LocalAuthController {
      * @return created user or conflict error
      */
     @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody UserRequestDto request) {
+    public ResponseEntity<Object> createUser(@RequestBody UserRequestDto request) {
         if (userService.getUserByEmail(request.getGmail()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body("User with this email already exists");
@@ -75,4 +75,5 @@ public class LocalAuthController {
         log.info("New user created: {}", user.getGmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+
 }
