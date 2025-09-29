@@ -21,6 +21,9 @@ public class UserController {
 
     private final UserService userService;
 
+    // Constant for message key to avoid duplication
+    private static final String MESSAGE_KEY = "message";
+
     // Constructor injection
     public UserController(UserService userService) {
         this.userService = userService;
@@ -79,28 +82,31 @@ public class UserController {
         Map<String, String> response = new HashMap<>();
         try {
             String message = userService.deleteUserById(id);
-            response.put("message", message);
+            response.put(MESSAGE_KEY, message);
             return ResponseEntity.ok(response);
         } catch (NoSuchElementException e) {
-            response.put("message", e.getMessage());
+            response.put(MESSAGE_KEY, e.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         } catch (IllegalStateException e) {
-            response.put("message", e.getMessage());
+            response.put(MESSAGE_KEY, e.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         }
     }
 
+
     /**
      * Updates a user by ID.
      *
-     * @param id user ID
+     * @param id          user ID
      * @param updatedUser new user details
      * @return success message or not found
      */
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody @Valid User updatedUser) {
-        Optional<User> updated = userService.updateUserById(id, updatedUser);
-        return updated.map(user -> ResponseEntity.ok("User record updated"))
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found"));
+    public ResponseEntity<Map<String, String>> updateUser(@PathVariable int id, @RequestBody @Valid User updatedUser) {
+        Map<String, String> response = new HashMap<>();
+        userService.updateUserById(id, updatedUser); // service handles all logging and exceptions
+        response.put(MESSAGE_KEY, "User record updated successfully");
+        return ResponseEntity.ok(response);
     }
+
 }

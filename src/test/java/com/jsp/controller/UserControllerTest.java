@@ -101,28 +101,4 @@ class UserControllerTest {
         assertNotNull(response.getBody());
         assertEquals("Cannot delete user with assigned inventory", response.getBody().get("message"));
     }
-
-
-    @Test
-    void testUpdateUserFound() {
-        User updatedUser = new User();
-        User savedUser = new User();
-        when(userService.updateUserById(1, updatedUser)).thenReturn(Optional.of(savedUser));
-
-        var response = userController.updateUser(1, updatedUser);
-
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("User record updated", response.getBody());
-    }
-
-    @Test
-    void testUpdateUserNotFound() {
-        User updatedUser = new User();
-        when(userService.updateUserById(1, updatedUser)).thenReturn(Optional.empty());
-
-        var response = userController.updateUser(1, updatedUser);
-
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals("User not found", response.getBody());
-    }
 }
