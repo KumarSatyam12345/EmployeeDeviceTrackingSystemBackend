@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param id the ID of the user
      * @return an {@link Optional} containing the {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
     @Override
     public Optional<User> getUserById(int id) {
@@ -102,31 +102,45 @@ public class UserServiceImpl implements UserService {
     /**
      * Updates a user's details by ID.
      *
-     * @param id           the ID of the user to update
-     * @param updatedUser  a {@link User} containing the updated values
+     * @param id          the ID of the user to update
+     * @param updatedUser a {@link User} containing the updated values
      * @return an {@link Optional} with the updated {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
     @Override
-    public Optional<User> updateUserById(int id, User updatedUser) {
-        Optional<User> optionalUser = userRepository.findById(id);
-        if (optionalUser.isPresent()) {
-            User existingUser = optionalUser.get();
+    public User updateUserById(int id, User updatedUser) {
+        return userRepository.findById(id).map(existingUser -> {
+            // Validate input
+            if (updatedUser.getName() == null || updatedUser.getName().isBlank()) {
+                log.warn("Attempted to update user {} with invalid name", id);
+                throw new IllegalArgumentException("User name cannot be empty");
+            }
+            if (updatedUser.getGmail() == null || updatedUser.getGmail().isBlank()) {
+                log.warn("Attempted to update user {} with invalid email", id);
+                throw new IllegalArgumentException("User email cannot be empty");
+            }
+
+            // Update fields
             existingUser.setName(updatedUser.getName());
             existingUser.setGmail(updatedUser.getGmail());
             existingUser.setPassword(updatedUser.getPassword());
+
             userRepository.save(existingUser);
-            return Optional.of(existingUser);
-        }
-        return Optional.empty();
+            log.info("User with ID {} updated successfully", id);
+            return existingUser;
+        }).orElseThrow(() -> {
+            log.warn("User with ID {} not found for update", id);
+            return new NoSuchElementException("User not found");
+        });
     }
+
 
     /**
      * Retrieves a user by their email address.
      *
      * @param gmail the email of the user
      * @return an {@link Optional} containing the {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
     @Override
     public Optional<User> getUserByEmail(String gmail) {

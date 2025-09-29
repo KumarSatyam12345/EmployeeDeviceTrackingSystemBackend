@@ -32,7 +32,7 @@ public interface UserService {
      *
      * @param id the unique identifier of the user
      * @return an {@link Optional} containing the {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
     Optional<User> getUserById(int id);
 
@@ -47,19 +47,19 @@ public interface UserService {
     /**
      * Updates the details of an existing user by its ID.
      *
-     * @param id           the unique identifier of the user
-     * @param updatedUser  the new user object containing updated values
+     * @param id          the unique identifier of the user
+     * @param updatedUser the new user object containing updated values
      * @return an {@link Optional} containing the updated {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
-    Optional<User> updateUserById(int id, User updatedUser);
+    User updateUserById(int id, User updatedUser);
 
     /**
      * Finds a user by their email address.
      *
      * @param gmail the email address of the user
      * @return an {@link Optional} containing the {@link User} if found,
-     *         otherwise an empty Optional
+     * otherwise an empty Optional
      */
     Optional<User> getUserByEmail(String gmail);
 

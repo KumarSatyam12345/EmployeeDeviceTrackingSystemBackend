@@ -31,14 +31,17 @@ class UserServiceImplTest {
     @BeforeEach
     void setUp() {
         userRepository = mock(UserReposetory.class);
+        inventoryRepository = mock(InventoryReposetory.class);
         userService = new UserServiceImpl(userRepository, inventoryRepository);
     }
 
     private User sampleUser() {
-        User user = new User();
-        user.setUid(1);
-        user.setName("John Doe");
-        return user;
+        return User.builder()
+                .uid(1)
+                .name("John Doe")
+                .gmail("john@example.com")
+                .password("pass123")
+                .build();
     }
 
     @Test
@@ -121,18 +124,34 @@ class UserServiceImplTest {
 
 
     @Test
-    void testUpdateUserByIdFound() {
-        User user = sampleUser();
+    void testUpdateUserByIdInvalidName() {
+        User existingUser = sampleUser();
+        User updatedUser = sampleUser();
+        updatedUser.setName(""); // invalid
+
+        when(userRepository.findById(1)).thenReturn(Optional.of(existingUser));
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> userService.updateUserById(1, updatedUser));
+
+        assertEquals("User name cannot be empty", exception.getMessage());
+        verify(userRepository, never()).save(any());
+    }
+
+    @Test
+    void testUpdateUserByIdSuccess() {
+        User existingUser = sampleUser();
         User updatedUser = sampleUser();
         updatedUser.setName("Updated Name");
-        when(userRepository.findById(1)).thenReturn(Optional.of(user));
+
+        when(userRepository.findById(1)).thenReturn(Optional.of(existingUser));
         when(userRepository.save(any(User.class))).thenReturn(updatedUser);
 
-        Optional<User> result = userService.updateUserById(1, updatedUser);
+        User result = userService.updateUserById(1, updatedUser);
 
-        assertTrue(result.isPresent());
-        assertEquals("Updated Name", result.get().getName());
-        verify(userRepository).save(any(User.class));
+        assertNotNull(result);
+        assertEquals("Updated Name", result.getName());
+        verify(userRepository).save(existingUser);
     }
 
     @Test
@@ -140,9 +159,10 @@ class UserServiceImplTest {
         User updatedUser = sampleUser();
         when(userRepository.findById(1)).thenReturn(Optional.empty());
 
-        Optional<User> result = userService.updateUserById(1, updatedUser);
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class,
+                () -> userService.updateUserById(1, updatedUser));
 
-        assertFalse(result.isPresent());
+        assertEquals("User not found", exception.getMessage());
         verify(userRepository, never()).save(any());
     }
 }
