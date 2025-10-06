@@ -1,10 +1,8 @@
-package com.jsp.controller;
+package com.jsp.service;
 
 import com.jsp.dto.LoginRequestDto;
 import com.jsp.dto.UserRequestDto;
 import com.jsp.entity.User;
-import com.jsp.service.LocalAuthService;
-import com.jsp.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,7 +16,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-class LocalAuthControllerTest {
+class LocalAuthServiceTest {
 
     @Mock
     private UserService userService;
@@ -37,8 +35,6 @@ class LocalAuthControllerTest {
         sampleUser.setGmail("test@example.com");
         sampleUser.setPassword("password123");
     }
-
-    // =================== LOGIN TESTS ===================
 
     @Test
     void testLoginSuccess() {
@@ -82,7 +78,6 @@ class LocalAuthControllerTest {
         verify(userService, times(1)).getUserByEmail("unknown@example.com");
     }
 
-    // =================== CREATE USER TESTS ===================
 
     @Test
     void testCreateUserSuccess() {
