@@ -27,7 +27,8 @@ public class User {
     @NoSpecialChars(message = "The string must not contain escape characters!")
     private String name;
 
-    @Email
+    @Email(message = "Email should be valid")
+    @Column(unique = true)
     private String gmail;
 
     private String password;
